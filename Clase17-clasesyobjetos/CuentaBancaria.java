@@ -11,22 +11,23 @@ public class CuentaBancaria {
         System.out.println(titular + " " + numeroCuenta + " " + saldo);
     }
 
-    void depositar(double monto) {
+    boolean depositar(double monto) {
+        boolean depositado;
         if (monto > 0) {
+            depositado = true;
             saldo += monto;
         } else {
-            System.out.println("Deposito fallido de " + titular);
-            System.out.println("Ingreso un monto no valido debe ser mayor a 0");
+            depositado = false;
         }
+        return depositado;
     }
 
     boolean retirar(double monto) {
-        boolean retirado = false;
+        boolean retirado;
         if (monto <= 0) {
-            System.out.println("Retiro fallido de " + titular);
-            System.out.println("Ingreso un monto no valido debe ser mayor a 0");
-        } else if (monto > saldo){
-            System.out.println("No hay saldo suficiente para retirar");
+            retirado = false;
+        } else if (monto > saldo) {
+            retirado = false;
         } else {
             saldo -= monto;
             retirado = true;

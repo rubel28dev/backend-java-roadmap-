@@ -3,6 +3,11 @@ public class CuentaBancaria {
     String numeroCuenta;
     private double saldo;
 
+    CuentaBancaria(String titular, String numeroCuenta) {
+        this.titular = titular;
+        this.numeroCuenta = numeroCuenta;
+    }
+
     double getSaldo() {
         return saldo;
     }
